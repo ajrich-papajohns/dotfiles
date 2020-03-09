@@ -1,0 +1,35 @@
+#
+# ~/.zrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+[[ $TERM == xterm-kitty ]] && exec tmux attach
+#[[ -z "$TMUX" ]] && exec tmux
+
+autoload -Uz compinit
+compinit
+
+PROMPT='%F{yellow}[%n%f@%F{green}%B%m%b%f %F{yellow}%~]%f%F{cyan}$%f '
+
+export LANG='en_US.UTF-8'
+
+export GOPATH=$HOME/.go
+
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export MAVEN_PATH=$HOME/Documents/apache-maven-3.6.3
+export MAVEN_OPTS="-Xms2048m -Xmx4096m"
+
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/sbin
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/Documents/scripts
+
+export PATH=$PATH:$MAVEN_PATH/bin
+export PATH=$PATH:JAVA_HOME/bin
+
+alias ls='ls -lh'
+alias gitlog='git log --oneline --decorate --all --graph'
+alias prettyjson='python3 -m json.tool'
+alias rg='rg --color ansi'
+alias less='less -R'

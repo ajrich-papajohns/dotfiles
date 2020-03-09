@@ -22,6 +22,8 @@ Plugin 'python/black'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'prettier/vim-prettier'
+Plugin 'vim-scripts/DrawIt'
+Plugin 'zivyangll/git-blame.vim'
 "My Plugins End
 
 call vundle#end()
@@ -50,6 +52,11 @@ let g:go_fmt_command = "goimports"
 
 set backspace=indent,eol,start
 
+"Papa Johns
+autocmd BufNewFile,BufRead *.ftl set filetype=html
+noremap <Leader>s :<C-u>call gitblame#echo()<CR>
+
+
 autocmd Filetype c setlocal noexpandtab tabstop=8 softtabstop=8 shiftwidth=8
 autocmd Filetype cpp setlocal noexpandtab tabstop=8 softtabstop=8 shiftwidth=8
 "let g:syntastic_c_include_dirs = ['/usr/include']
@@ -72,9 +79,6 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 command JSONPretty :%!python -m json.tool
 
-set laststatus=2
-set statusline=%F
-
 autocmd BufWritePre *.js execute ':Prettier'
 
 
@@ -82,3 +86,5 @@ autocmd BufWritePre *.js execute ':Prettier'
 autocmd BufNewFile,BufRead *.p8 set syntax=lua filetype=lua
 autocmd FileType lua noremap <buffer> <F8> :exec '!/Applications/pico-8/PICO-8.app/Contents/MacOS/pico8 -run' shellescape(@%,1)<cr>
 let g:syntastic_ignore_files = ['*.p8']
+
+set ruler
