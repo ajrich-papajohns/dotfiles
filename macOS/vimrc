@@ -24,6 +24,10 @@ Plugin 'mxw/vim-jsx'
 Plugin 'prettier/vim-prettier'
 Plugin 'vim-scripts/DrawIt'
 Plugin 'zivyangll/git-blame.vim'
+Plugin 'jremmen/vim-ripgrep'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 "My Plugins End
 
 call vundle#end()
@@ -31,7 +35,7 @@ filetype plugin indent on
 
 "Tabs
 set tabstop=2
-set noexpandtab
+set expandtab
 set shiftwidth=2
 
 "autocmd vimenter * NERDTree
@@ -79,7 +83,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 command JSONPretty :%!python -m json.tool
 
-autocmd BufWritePre *.js execute ':Prettier'
+"autocmd BufWritePre *.js execute ':Prettier'
 
 
 " PICO-8

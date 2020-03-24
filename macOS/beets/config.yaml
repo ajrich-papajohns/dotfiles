@@ -1,0 +1,8 @@
+directory: ~/Music/beets
+library: ~/Music/beets/data/library.db
+import:
+  move: yes
+plugins: fetchart ftintitle embedart smartplaylist random lyrics
+mpdupdate:
+  host: localhost
+  port: 6600
